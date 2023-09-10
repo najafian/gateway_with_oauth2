@@ -12,7 +12,7 @@ spring:
           enabled: true
       routes:
         - id: resource-server
-          uri: http://127.0.0.1:8090
+          uri: http://172.17.0.1:8090
           predicates:
             Path=/resource/**
           filters:
@@ -33,16 +33,16 @@ spring:
             client-name: messaging-gateway-oidc
         provider:
           gateway-client-provider:
-            #issuer-uri: http://127.0.0.1:8080
-            authorization-uri: http://127.0.0.1:8080/oauth2/authorize
-            token-uri: http://127.0.0.1:8080/oauth2/token
-            jwk-set-uri: http://127.0.0.1:8080/oauth2/jwks
-            user-info-uri: http://127.0.0.1:8080/userinfo
+            issuer-uri: http://172.17.0.1:8080
+            authorization-uri: http://172.17.0.1:8080/oauth2/authorize
+            token-uri: http://172.17.0.1:8080/oauth2/token
+            jwk-set-uri: http://172.17.0.1:8080/oauth2/jwks
+            user-info-uri: http://172.17.0.1:8080/userinfo
             user-name-attribute: sub
 logging:
   level:
-    root: INFO
-    org.springframework.web: INFO
-    org.springframework.security: INFO
-    org.springframework.security.oauth2: INFO
-    org.springframework.cloud.gateway: INFO
+#    root: INFO
+#    org.springframework.web: INFO
+    org.springframework.security: TRACE
+#    org.springframework.security.oauth2: INFO
+#    org.springframework.cloud.gateway: INFO
