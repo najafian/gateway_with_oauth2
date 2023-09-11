@@ -19,6 +19,7 @@ class OAuth2LoginSecurityConfig {
                     .anyExchange().authenticated()
             }
             .oauth2Login(Customizer.withDefaults())
+            .oauth2ResourceServer{it.jwt{}}
         return http.build()
     }
 }
